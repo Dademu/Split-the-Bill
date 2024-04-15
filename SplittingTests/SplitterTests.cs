@@ -70,6 +70,20 @@ public class SplitterTests
         Assert.Equal(4.5m, tipAmounts["Bob"]);
         Assert.Equal(3.75m, tipAmounts["Charlie"]);
     }
+    [Fact]
+    public void TipPerPerson_ValidInputs_ReturnsCorrectTipAmountPerPerson()
+    {
+        // Arrange
+        var splitter = new Splitter();
+        decimal price = 100m;
+        int numberOfPatrons = 5;
+        float tipPercentage = 20;
 
+        // Act
+        decimal tipPerPerson = splitter.TipPerPerson(price, numberOfPatrons, tipPercentage);
+
+        // Assert
+        Assert.Equal(24m, tipPerPerson);
+    }
 }
 

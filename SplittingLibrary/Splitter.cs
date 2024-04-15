@@ -31,4 +31,12 @@ public class Splitter
 
         return tipAmounts;
     }
+    public decimal TipPerPerson(decimal price, int numberOfPatrons, float tipPercentage)
+    {
+        if (numberOfPatrons == 0)
+            throw new ArgumentException("Number of patrons cannot be zero.");
+
+        decimal totalAmount = price * (1 + (decimal)(tipPercentage / 100));
+        return totalAmount / numberOfPatrons;
+    }
 }
