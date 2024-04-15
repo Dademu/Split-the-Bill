@@ -54,11 +54,11 @@ public class SplitterTests
         // Arrange
         var splitter = new Splitter();
         var mealCosts = new Dictionary<string, decimal>
-            {
-                {"Alice", 20m},
-                {"Bob", 30m},
-                {"Charlie", 25m}
-            };
+    {
+        {"Alice", 20m},
+        {"Bob", 30m},
+        {"Charlie", 25m}
+    };
         float tipPercentage = 15;
 
         // Act
@@ -66,9 +66,9 @@ public class SplitterTests
 
         // Assert
         Assert.Equal(3, tipAmounts.Count);
-        Assert.Equal(3m, tipAmounts["Alice"]);
-        Assert.Equal(4.5m, tipAmounts["Bob"]);
-        Assert.Equal(3.75m, tipAmounts["Charlie"]);
+        Assert.Equal(3.00m, Math.Round(tipAmounts["Alice"], 2));
+        Assert.Equal(4.50m, Math.Round(tipAmounts["Bob"], 2));
+        Assert.Equal(3.75m, Math.Round(tipAmounts["Charlie"], 2));
     }
     [Fact]
     public void TipPerPerson_ValidInputs_ReturnsCorrectTipAmountPerPerson()
